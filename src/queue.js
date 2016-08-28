@@ -9,7 +9,11 @@ class PriorityQueue {
 	}
 
 	push(data, priority) {
-
+		if (this.heap.size() < this.maxSize) {
+			this.heap.push(data, priority);
+		} else {
+			throw new Error("Node isn't a child of this node");
+		}
 	}
 
 	shift() {
@@ -17,7 +21,7 @@ class PriorityQueue {
 	}
 
 	size() {
-
+		//return this.heap.size();
 	}
 
 	isEmpty() {
