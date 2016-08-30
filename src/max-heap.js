@@ -17,13 +17,16 @@ class MaxHeap {
   }
 
   pop() {
-    if (this.parentNodes.length !== 0) {
-      var detached = this.detachRoot();
-      this.restoreRootFromLastInsertedNode(detached);
-      this.shiftNodeDown(this.root);
-      return this.root.data;
+    
+      if(this.root === null) return;
+		var detached = this.detachRoot();
+		this.heapSize --;
+		this.restoreRootFromLastInsertedNode(detached);
+		this.shiftNodeDown(this.root);
+		return detached.data;
+		
     }
-  }
+  
 
   detachRoot() {
     var lastDetachedRoot = this.root;
