@@ -21,6 +21,10 @@ class MaxHeap {
       if(this.root === null) return;
 		var detached = this.detachRoot();
 		this.heapSize --;
+      if (detached.left === null && detached.right === null){
+      this.clear();
+      return detached.data;
+      }
 		this.restoreRootFromLastInsertedNode(detached);
 		this.shiftNodeDown(this.root);
 		return detached.data;
