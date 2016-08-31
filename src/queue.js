@@ -17,6 +17,8 @@ class PriorityQueue {
 	}
 
 	shift() {
+		if ( this.heap.isEmpty() )
+			throw "Queue's empty!";
 		return this.heap.pop();
 	}
 
